@@ -5,12 +5,12 @@ namespace app\modules\admin\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\Product;
+use app\modules\admin\models\Mark;
 
 /**
- * ProductSearch represents the model behind the search form about `app\modules\admin\models\Product`.
+ * MarkSearch represents the model behind the search form about `app\modules\admin\models\Mark`.
  */
-class ProductSearch extends Product
+class MarkSearch extends Mark
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'brand_id', 'shop_id', 'price'], 'integer'],
-            [['mark_id', 'created'], 'safe'],
+            [['id', 'brand_id'], 'integer'],
+            [['name', 'degree'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = Mark::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -58,12 +58,10 @@ class ProductSearch extends Product
         $query->andFilterWhere([
             'id' => $this->id,
             'brand_id' => $this->brand_id,
-            'shop_id' => $this->shop_id,
-            'price' => $this->price,
-            'created' => $this->created,
         ]);
 
-        $query->andFilterWhere(['like', 'mark_id', $this->mark_id]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'degree', $this->degree]);
 
         return $dataProvider;
     }

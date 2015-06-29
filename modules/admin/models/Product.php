@@ -9,13 +9,13 @@ use Yii;
  *
  * @property integer $id
  * @property integer $brand_id
- * @property string $name
+ * @property string $mark_id
  * @property integer $shop_id
  * @property integer $price
  * @property string $created
  *
- * @property Brand $brand
  * @property Shop $shop
+ * @property Brand $brand
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -33,10 +33,10 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['brand_id', 'name', 'shop_id', 'price', 'created'], 'required'],
+            [['brand_id', 'mark_id', 'shop_id', 'price', 'created'], 'required'],
             [['brand_id', 'shop_id', 'price'], 'integer'],
             [['created'], 'safe'],
-            [['name'], 'string', 'max' => 120]
+            [['mark_id'], 'string', 'max' => 120]
         ];
     }
 
@@ -47,8 +47,8 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'brand_id' => 'Brand ID',
-            'name' => 'Name',
+            'brand_id' => 'Бренд',
+            'mark_id' => 'Марка',
             'shop_id' => 'Shop ID',
             'price' => 'Price',
             'created' => 'Created',
@@ -58,16 +58,16 @@ class Product extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBrand()
+    public function getShop()
     {
-        return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
+        return $this->hasOne(Shop::className(), ['id' => 'shop_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getShop()
+    public function getBrand()
     {
-        return $this->hasOne(Shop::className(), ['id' => 'shop_id']);
+        return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
     }
 }

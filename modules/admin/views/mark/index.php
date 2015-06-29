@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\ProductSearch */
+/* @var $searchModel app\modules\admin\models\MarkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Products';
+$this->title = 'Marks';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="product-index">
+<div class="mark-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Mark', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -27,10 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'brand.name',
-            'mark_id',
-            'shop.name',
-            'price',
-            // 'created',
+            'name',
+            'degree',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
