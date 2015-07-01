@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 01 2015 г., 00:00
+-- Время создания: Июл 01 2015 г., 10:32
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.6.3
 
@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image_id` int(11) NOT NULL,
   `brand_id` int(11) NOT NULL,
+  `mark_id` int(11) NOT NULL,
   `typebeer_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL,
   `shop_id` int(11) NOT NULL,
@@ -137,15 +138,16 @@ CREATE TABLE IF NOT EXISTS `product` (
   KEY `size_id` (`size_id`),
   KEY `brand_id_2` (`brand_id`),
   KEY `typebeer_id` (`typebeer_id`),
-  KEY `image_id` (`image_id`)
+  KEY `image_id` (`image_id`),
+  KEY `mark_id` (`mark_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `image_id`, `brand_id`, `typebeer_id`, `size_id`, `shop_id`, `price`, `date`, `created`) VALUES
-(1, 1, 1, 1, 1, 1, 10900, '0000-00-00', '0000-00-00');
+INSERT INTO `product` (`id`, `image_id`, `brand_id`, `mark_id`, `typebeer_id`, `size_id`, `shop_id`, `price`, `date`, `created`) VALUES
+(1, 1, 1, 1, 1, 1, 1, 10900, '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -266,11 +268,12 @@ ALTER TABLE `mark`
 -- Ограничения внешнего ключа таблицы `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`),
+  ADD CONSTRAINT `product_ibfk_6` FOREIGN KEY (`mark_id`) REFERENCES `mark` (`id`),
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`shop_id`) REFERENCES `shop` (`id`),
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`),
   ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`size_id`) REFERENCES `size` (`id`),
-  ADD CONSTRAINT `product_ibfk_4` FOREIGN KEY (`typebeer_id`) REFERENCES `typebeer` (`id`);
+  ADD CONSTRAINT `product_ibfk_4` FOREIGN KEY (`typebeer_id`) REFERENCES `typebeer` (`id`),
+  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `shop`
