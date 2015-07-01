@@ -8,11 +8,13 @@ use Yii;
  * This is the model class for table "mark".
  *
  * @property integer $id
- * @property integer $brand_id
+ * @property integer $image_id
  * @property string $name
  * @property string $degree
  *
- * @property Brand $brand
+ * @property Brand[] $brands
+ * @property Image $image
+ * @property Product[] $products
  */
 class Mark extends \yii\db\ActiveRecord
 {
@@ -30,8 +32,8 @@ class Mark extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['brand_id', 'name', 'degree'], 'required'],
-            [['brand_id'], 'integer'],
+            [['image_id', 'name', 'degree'], 'required'],
+            [['image_id'], 'integer'],
             [['name', 'degree'], 'string', 'max' => 120]
         ];
     }
@@ -43,7 +45,7 @@ class Mark extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'brand_id' => 'Brand ID',
+            'image_id' => 'Image ID',
             'name' => 'Name',
             'degree' => 'Degree',
         ];
@@ -52,8 +54,24 @@ class Mark extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBrand()
+    public function getBrands()
     {
-        return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
+        return $this->hasMany(Brand::className(), ['mark_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getImage()
+    {
+        return $this->hasOne(Image::className(), ['id' => 'image_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProducts()
+    {
+        return $this->hasMany(Product::className(), ['mark_id' => 'id']);
     }
 }

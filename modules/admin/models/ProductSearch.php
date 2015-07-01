@@ -18,8 +18,8 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'brand_id', 'shop_id', 'price'], 'integer'],
-            [['mark_id', 'created'], 'safe'],
+            [['id', 'image_id', 'brand_id', 'mark_id', 'typebeer_id', 'size_id', 'shop_id', 'price'], 'integer'],
+            [['date', 'created'], 'safe'],
         ];
     }
 
@@ -57,13 +57,16 @@ class ProductSearch extends Product
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'image_id' => $this->image_id,
             'brand_id' => $this->brand_id,
+            'mark_id' => $this->mark_id,
+            'typebeer_id' => $this->typebeer_id,
+            'size_id' => $this->size_id,
             'shop_id' => $this->shop_id,
             'price' => $this->price,
+            'date' => $this->date,
             'created' => $this->created,
         ]);
-
-        $query->andFilterWhere(['like', 'mark_id', $this->mark_id]);
 
         return $dataProvider;
     }

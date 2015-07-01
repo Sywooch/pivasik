@@ -17,13 +17,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
+    <?= $form->field($model, 'image_id') ?>
+
     <?= $form->field($model, 'brand_id') ?>
 
     <?= $form->field($model, 'mark_id') ?>
 
-    <?= $form->field($model, 'shop_id') ?>
+    <?= $form->field($model, 'typebeer_id') ?>
 
-    <?= $form->field($model, 'price') ?>
+    <?php // echo $form->field($model, 'size_id') ?>
+
+    <?php // echo $form->field($model, 'shop_id') ?>
+
+    <?php // echo $form->field($model, 'price') ?>
+
+    <?php // echo $form->field($model, 'date') ?>
 
     <?php // echo $form->field($model, 'created') ?>
 

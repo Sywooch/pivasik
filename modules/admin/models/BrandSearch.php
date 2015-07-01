@@ -18,7 +18,7 @@ class BrandSearch extends Brand
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'image_id', 'mark_id'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -57,6 +57,8 @@ class BrandSearch extends Brand
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'image_id' => $this->image_id,
+            'mark_id' => $this->mark_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

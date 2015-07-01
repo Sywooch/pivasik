@@ -8,9 +8,12 @@ use Yii;
  * This is the model class for table "brand".
  *
  * @property integer $id
+ * @property integer $image_id
  * @property string $name
+ * @property integer $mark_id
  *
- * @property Mark[] $marks
+ * @property Image $image
+ * @property Mark $mark
  * @property Product[] $products
  */
 class Brand extends \yii\db\ActiveRecord
@@ -29,7 +32,8 @@ class Brand extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['image_id', 'name', 'mark_id'], 'required'],
+            [['image_id', 'mark_id'], 'integer'],
             [['name'], 'string', 'max' => 120]
         ];
     }
@@ -41,16 +45,26 @@ class Brand extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Назваиние бренда',
+            'image_id' => 'Image ID',
+            'name' => 'Name',
+            'mark_id' => 'Mark ID',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMarks()
+    public function getImage()
     {
-        return $this->hasMany(Mark::className(), ['brand_id' => 'id']);
+        return $this->hasOne(Image::className(), ['id' => 'image_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMark()
+    {
+        return $this->hasOne(Mark::className(), ['id' => 'mark_id']);
     }
 
     /**

@@ -18,7 +18,7 @@ class MarkSearch extends Mark
     public function rules()
     {
         return [
-            [['id', 'brand_id'], 'integer'],
+            [['id', 'image_id'], 'integer'],
             [['name', 'degree'], 'safe'],
         ];
     }
@@ -57,7 +57,7 @@ class MarkSearch extends Mark
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'brand_id' => $this->brand_id,
+            'image_id' => $this->image_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

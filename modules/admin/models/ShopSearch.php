@@ -18,7 +18,7 @@ class ShopSearch extends Shop
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'image_id', 'address_id'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -57,6 +57,8 @@ class ShopSearch extends Shop
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'image_id' => $this->image_id,
+            'address_id' => $this->address_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

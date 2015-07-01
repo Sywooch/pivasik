@@ -12,13 +12,21 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'image_id')->textInput() ?>
+
     <?= $form->field($model, 'brand_id')->textInput() ?>
 
-    <?= $form->field($model, 'mark_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'mark_id')->textInput() ?>
+
+    <?= $form->field($model, 'typebeer_id')->textInput() ?>
+
+    <?= $form->field($model, 'size_id')->textInput() ?>
 
     <?= $form->field($model, 'shop_id')->textInput() ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
+
+    <?= $form->field($model, 'date')->textInput() ?>
 
     <?= $form->field($model, 'created')->textInput() ?>
 

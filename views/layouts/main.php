@@ -39,9 +39,14 @@ AppAsset::register($this);
                     ['label' => 'About', 'url' => ['/site/about']],
                     ['label' => 'Contact', 'url' => ['/site/contact']],
                     ['label' => 'Shop', 'url' => ['/admin/shop']],
+                    ['label' => 'Addess', 'url' => ['/admin/address']],
+                    ['label' => 'Worktime', 'url' => ['/admin/worktime']],
+
                     ['label' => 'Product', 'url' => ['/admin/product']],
                     ['label' => 'Brand', 'url' => ['/admin/brand']],
                     ['label' => 'Mark', 'url' => ['/admin/mark']],
+                    ['label' => 'Typebeer', 'url' => ['/admin/typebeer']],
+                    ['label' => 'Size', 'url' => ['/admin/size']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
