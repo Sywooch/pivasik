@@ -45,9 +45,9 @@ class Mark extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image_id' => 'Image ID',
-            'name' => 'Name',
-            'degree' => 'Degree',
+            'image_id' => 'Изображание',
+            'name' => 'Марка',
+            'degree' => 'Градус',
         ];
     }
 

@@ -54,15 +54,15 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image_id' => 'Image ID',
-            'brand_id' => 'Brand ID',
-            'mark_id' => 'Mark ID',
-            'typebeer_id' => 'Typebeer ID',
-            'size_id' => 'Size ID',
-            'shop_id' => 'Shop ID',
-            'price' => 'Price',
-            'date' => 'Date',
-            'created' => 'Created',
+            'image_id' => 'Изображение',
+            'brand_id' => 'Бренд',
+            'mark_id' => 'Марка',
+            'typebeer_id' => 'Тип',
+            'size_id' => 'Объем',
+            'shop_id' => 'Магазин',
+            'price' => 'Цена',
+            'date' => 'Дата',
+            'created' => 'Создано',
         ];
     }
 
@@ -113,4 +113,5 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Image::className(), ['id' => 'image_id']);
     }
+
 }

@@ -46,9 +46,9 @@ class Shop extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image_id' => 'Image ID',
-            'name' => 'Name',
-            'address_id' => 'Address ID',
+            'image_id' => 'Изображение',
+            'name' => 'Магазин',
+            'address_id' => 'Адрес',
         ];
     }
 

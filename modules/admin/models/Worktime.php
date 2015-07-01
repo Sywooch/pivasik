@@ -41,8 +41,8 @@ class Worktime extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'timestart' => 'Timestart',
-            'timeend' => 'Timeend',
+            'timestart' => 'Начало работы',
+            'timeend' => 'Конец работы',
         ];
     }
 

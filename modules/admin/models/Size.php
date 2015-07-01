@@ -40,7 +40,7 @@ class Size extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'volume' => 'Volume',
+            'volume' => 'Объем',
         ];
     }
 

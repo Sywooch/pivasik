@@ -26,7 +26,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'pivasik.by',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -35,21 +35,21 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
-                    ['label' => 'Shop', 'url' => ['/admin/shop']],
-                    ['label' => 'Addess', 'url' => ['/admin/address']],
-                    ['label' => 'Worktime', 'url' => ['/admin/worktime']],
+                    ['label' => 'Главная', 'url' => ['/site/index']],
+                    ['label' => 'О нас', 'url' => ['/site/about']],
+                    ['label' => 'Контакты', 'url' => ['/site/contact']],
+                    ['label' => 'Магазины', 'url' => ['/admin/shop']],
+                    ['label' => 'Адреса', 'url' => ['/admin/address']],
+                    ['label' => 'Время работы', 'url' => ['/admin/worktime']],
 
-                    ['label' => 'Product', 'url' => ['/admin/product']],
-                    ['label' => 'Brand', 'url' => ['/admin/brand']],
-                    ['label' => 'Mark', 'url' => ['/admin/mark']],
-                    ['label' => 'Typebeer', 'url' => ['/admin/typebeer']],
-                    ['label' => 'Size', 'url' => ['/admin/size']],
+                    ['label' => 'Продукты', 'url' => ['/admin/product']],
+                    ['label' => 'Бренды', 'url' => ['/admin/brand']],
+                    ['label' => 'Марки', 'url' => ['/admin/mark']],
+                    ['label' => 'Тип', 'url' => ['/admin/typebeer']],
+                    ['label' => 'Объем', 'url' => ['/admin/size']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['label' => 'Вход', 'url' => ['/site/login']] :
+                        ['label' => 'Выход (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
